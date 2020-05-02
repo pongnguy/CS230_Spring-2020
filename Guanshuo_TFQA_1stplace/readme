@@ -14,7 +14,7 @@ Steps for training and validation:
 3.3) Go to squad_finetuning/albert-xxlarge-v2/1/ and run "run.sh" for Squad finetuning
 3.4) Copy the pytorch_model.bin from squad_finetuning/albert-xxlarge-v2/1/output/ to code/albert-xxlarge-v2_2/model/ and code/albert-xxlarge-v2_3/model/
 3.5) Go to code/albert-xxlarge-v2_2/ and code/albert-xxlarge-v2_3/ and run "run.sh"
-4.1) Download pytorch_model.bin from https://s3.amazonaws.com/models.huggingface.co/bert/bert-large-uncased-whole-word-masking-finetuned-squad-config.json, and copy it to code/bert-large-uncased_4 and code/bert-large-uncased_5
+4.1) Download pytorch_model.bin from https://s3.amazonaws.com/models.huggingface.co/bert/bert-large-uncased-whole-word-masking-finetuned -squad-config.json, and copy it to code/bert-large-uncased_4 and code/bert-large-uncased_5
 4.2) Go to code/bert-large-uncased_4 and code/bert-large-uncased_5 and run "run.sh"
 5) Go to validation/ and run "run.sh", the F1 scores together with optimized thresholds can be found in predictions.txt (There is already a predictions.txt for reference). The test kernel is almost same as the valid.py, the major difference is to manually set the thresholds based on the values generated in predictions.txt and tuned on the public LB.
 

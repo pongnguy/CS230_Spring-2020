@@ -8,7 +8,7 @@ from torch import optim
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 import torch
-from apex import amp
+#from apex import amp
 from torch.utils.data import DataLoader, RandomSampler, SequentialSampler
 from torch.utils.data.distributed import DistributedSampler
 import random
@@ -245,21 +245,23 @@ def main():
 
     args = parser.parse_args()
 
-    torch.cuda.set_device(args.local_rank)
-    device = torch.device("cuda", args.local_rank)
-    torch.distributed.init_process_group(backend="nccl")
+    #torch.cuda.set_device(args.local_rank)  # alfred
+    device = torch.device("cpu")
+    #device = torch.device("cuda", args.local_rank)
+    #torch.distributed.init_process_group(backend="nccl")
     args.device = device
 
     seed = 1001
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
-    torch.cuda.manual_seed(seed)
-    torch.backends.cudnn.deterministic = True
+    #torch.cuda.manual_seed(seed)
+    #torch.backends.cudnn.deterministic = True
 
+    print("Started reading data") # alfred
 
     # prepare input
-    json_dir = '../../input/simplified-nq-train.jsonl'
+    json_dir = '../../input/simplified-nq-train.jsonl' # alfred
     max_data = 9999999999
 
     id_list = []
@@ -317,6 +319,7 @@ def main():
                                       'negative_end': negative_candidate_end,               
                                      }
 
+    print("Finish reading data") # alfred
 
     print(len(id_list))
     random.shuffle(id_list)
@@ -353,6 +356,7 @@ def main():
             model, device_ids=[args.local_rank], output_device=args.local_rank, find_unused_parameters=True
         )
 
+    print("Finish building model") # alfred
 
     # training
 

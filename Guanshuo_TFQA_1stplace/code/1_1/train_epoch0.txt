@@ -1,0 +1,15 @@
+Started reading dataStarted reading dataStarted reading dataStarted reading data
+
+
+
+Finish reading data
+152086
+Finish reading data
+152086
+Finish reading data
+152086
+Finish reading data
+152086
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
